@@ -1,0 +1,32 @@
+!!!
+%html
+  %head
+    %style
+      :sass
+        body
+          text-align: center
+        #countdown
+          margin: 0 auto
+          background-color: lightblue
+          width: 500px
+          height: 60px
+          
+    %script(src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript" charset="utf-8")
+    %script(src="countdown.js" type="text/javascript" charset="utf-8")
+
+    :javascript
+      $(function(){
+        window.timer = new CountDownTimer('#countdown');
+        
+        $('h2').hover(function() {
+          timer.stopCounting();
+        }, function() {
+          timer.startCounting();
+        })
+      })
+
+  %body
+    %h2
+      Time until Apocalypse:
+      #countdown(data-until="2013-08-18")
+
